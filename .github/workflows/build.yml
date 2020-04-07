@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           cd Zen
-          xcodebuild clean build -project Zen.xcodeproj -target ZenExample -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean build -project Zen.xcodeproj -scheme ZenExample -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env: 
          destination: ${{ matrix.destination }}
        
