@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC27B52B243D60C1005E6E0E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC88A65243C1CF10087AFAB /* Alamofire.framework */; };
-		BC27B52C243D60C1005E6E0E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCC88A65243C1CF10087AFAB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC27B530243D617C005E6E0E /* Zen in Frameworks */ = {isa = PBXBuildFile; productRef = BC27B52F243D617C005E6E0E /* Zen */; };
 		BCC88A5A243C12090087AFAB /* Zen.h in Headers */ = {isa = PBXBuildFile; fileRef = BCC88A58243C12090087AFAB /* Zen.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BCC88A63243C125F0087AFAB /* GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC88A62243C125F0087AFAB /* GET.swift */; };
@@ -20,21 +18,8 @@
 		BCC88A7C243C1D100087AFAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC88A7A243C1D100087AFAB /* LaunchScreen.storyboard */; };
 		BCC88A84243C1D400087AFAB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC88A83243C1D400087AFAB /* APIClient.swift */; };
 		BCC88A87243C1D4C0087AFAB /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC88A86243C1D4C0087AFAB /* Todo.swift */; };
+		BCDB9AC2243D7E5100D23B0F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BCDB9AC1243D7E5100D23B0F /* Alamofire */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BC27B52D243D60C1005E6E0E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BC27B52C243D60C1005E6E0E /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BCC88A55243C12090087AFAB /* Zen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC27B52B243D60C1005E6E0E /* Alamofire.framework in Frameworks */,
+				BCDB9AC2243D7E5100D23B0F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +150,6 @@
 				BCC88A51243C12090087AFAB /* Sources */,
 				BCC88A52243C12090087AFAB /* Frameworks */,
 				BCC88A53243C12090087AFAB /* Resources */,
-				BC27B52D243D60C1005E6E0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +157,7 @@
 			);
 			name = Zen;
 			packageProductDependencies = (
+				BCDB9AC1243D7E5100D23B0F /* Alamofire */,
 			);
 			productName = Zen;
 			productReference = BCC88A55243C12090087AFAB /* Zen.framework */;
@@ -228,6 +213,7 @@
 			mainGroup = BCC88A4B243C12090087AFAB;
 			packageReferences = (
 				BC27B52E243D617C005E6E0E /* XCRemoteSwiftPackageReference "Zen" */,
+				BCDB9AC0243D7E5100D23B0F /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BCC88A56243C12090087AFAB /* Products */;
 			projectDirPath = "";
@@ -554,6 +540,14 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		BCDB9AC0243D7E5100D23B0F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -561,6 +555,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC27B52E243D617C005E6E0E /* XCRemoteSwiftPackageReference "Zen" */;
 			productName = Zen;
+		};
+		BCDB9AC1243D7E5100D23B0F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCDB9AC0243D7E5100D23B0F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

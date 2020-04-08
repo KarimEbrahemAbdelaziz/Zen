@@ -18,7 +18,7 @@
     <a href="https://github.com/KarimEbrahemAbdelaziz/Zen">
         <img src="http://img.shields.io/badge/Swift Package Manager-available-green.svg?style=flat" alt="Swift Package Manager" />
     </a>
-    <img src="http://img.shields.io/badge/version-0.1.4-green.svg?style=flat" alt="Version" />
+    <img src="http://img.shields.io/badge/version-0.1.5-green.svg?style=flat" alt="Version" />
     <br>
     <a href="https://www.facebook.com/KarimEbrahemAbdelaziz">
         <img src="http://img.shields.io/badge/facebook-%40KarimEbrahemAbdelaziz-70a1fb.svg?style=flat" alt="Facebook: @KarimEbrahemAbdelaziz" />
@@ -56,7 +56,7 @@ Zen is simple yet powerfull Networking library for iOS. It leverage the powerful
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Zen into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'Zen', '~> 0.1.4'
+pod 'Zen', '~> 0.1.5'
 ```
 
 ### Carthage
@@ -64,7 +64,7 @@ pod 'Zen', '~> 0.1.4'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Zen into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "KarimEbrahemAbdelaziz/Zen" ~> 0.1.4
+github "KarimEbrahemAbdelaziz/Zen" ~> 0.1.5
 ```
 
 ### SPM
@@ -75,7 +75,7 @@ Once you have your Swift package set up, adding Zen as a dependency is as easy a
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/KarimEbrahemAbdelaziz/Zen.git", .upToNextMajor(from: "0.1.4"))
+    .package(url: "https://github.com/KarimEbrahemAbdelaziz/Zen.git", .upToNextMajor(from: "0.1.5"))
 ]
 ```
 
