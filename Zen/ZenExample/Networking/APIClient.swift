@@ -10,6 +10,6 @@ import Foundation
 import Zen
 
 class APIClient {
-    @GET<[Todo]>(url: "https://jsonplaceholder.typicode.com/todos")
-    static var fetchTodos: Service<[Todo]>
+    @ZenRequest<Todo>("https://jsonplaceholder.typicode.com/todos/")
+    static var fetchTodo: Service<Todo>
 }
