@@ -2,14 +2,29 @@ import XCTest
 @testable import Zen
 
 final class ZenTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        // XCTAssertEqual(Zen().text, "Hello, World!")
+    
+    func testGetRequest() {
+        let expectation = self.expectation(description: "Get Request")
+        
+        try? APIClient.$fetchTodo
+            .set(method: .get)
+            .set(path: "1")
+            .build()
+        
+        APIClient.fetchTodo { result in
+            switch result {
+            case .success(let todo):
+                print(todo.title)
+            case .failure(let error):
+                print(error)
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
     }
-
+    
     static var allTests = [
-        ("testExample", testExample),
+        ("testGetRequest", testGetRequest)
     ]
 }
