@@ -14,12 +14,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchTodos()
+        fetchTodo()
     }
     
-    private func fetchTodos() {
-        APIClient.fetchTodos { result in
-            print(result)
+    private func fetchTodo() {
+        try? APIClient.$fetchTodo
+            .set(method: .get)
+            .set(path: "1")
+            .build()
+        
+        APIClient.fetchTodo { result in
+            switch result {
+            case .success(let todo):
+                print(todo.title)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
