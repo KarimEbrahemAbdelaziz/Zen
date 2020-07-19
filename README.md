@@ -96,24 +96,34 @@ struct Todo: Codable {
 import Zen
 
 class APIClient {
-    @GET<[Todo]>(url: "https://jsonplaceholder.typicode.com/todos")
-    static var fetchTodos: Service<[Todo]>
+    @ZenRequest<Todo>("https://jsonplaceholder.typicode.com/todos/")
+    static var fetchTodo: Service<Todo>
 }
 ```
 
 #### Use it 🤓
 ```swift
-APIClient.fetchTodos { result in
-    print(result)
+try? APIClient.$fetchTodo
+    .set(method: .get)
+    .set(path: "1")
+    .build()
+
+APIClient.fetchTodo { result in
+    switch result {
+    case .success(let todo):
+        print(todo.title)
+    case .failure(let error):
+        print(error)
+    }
 }
 ```
 
 ## Todo
 
-- [ ] Support all HTTP Methods Requests.
-- [ ] Support Body Parameters.
-- [ ] Support Query Parameters.
-- [ ] Support Headers.
+- [x] Support all HTTP Methods Requests.
+- [x] Support Body Parameters.
+- [x] Support Query Parameters.
+- [x] Support Headers.
 - [ ] Support Interceptors.
 
 ## Author
