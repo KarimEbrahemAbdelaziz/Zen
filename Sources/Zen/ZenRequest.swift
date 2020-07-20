@@ -51,19 +51,18 @@ public class ZenRequest<T> where T: Codable {
     
     public func build() throws {
         do {
-            var urlRequest = URLRequest(url: url.appendingPathComponent(path ?? ""),
-                                        cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                        timeoutInterval: 25)
+            var urlRequest = URLRequest(
+                url: url.appendingPathComponent(path ?? ""),
+                cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+                timeoutInterval: 25
+            )
             urlRequest.httpMethod = method?.rawValue
-            
             headers?.forEach {
                 urlRequest.addValue($0.value as! String, forHTTPHeaderField: $0.key)
             }
-            
             if let params = parameters {
                 urlRequest = try buildRequestParams(urlRequest, params: params)
             }
-            
             self.request = urlRequest
         } catch {
             throw ZenError.RequestBuilderFailed
