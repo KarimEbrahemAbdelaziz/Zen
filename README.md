@@ -18,7 +18,7 @@
     <a href="https://github.com/KarimEbrahemAbdelaziz/Zen">
         <img src="http://img.shields.io/badge/Swift Package Manager-available-green.svg?style=flat" alt="Swift Package Manager" />
     </a>
-    <img src="http://img.shields.io/badge/version-0.1.6-green.svg?style=flat" alt="Version" />
+    <img src="http://img.shields.io/badge/version-0.1.7-green.svg?style=flat" alt="Version" />
     <br>
     <a href="https://www.facebook.com/KarimEbrahemAbdelaziz">
         <img src="http://img.shields.io/badge/facebook-%40KarimEbrahemAbdelaziz-70a1fb.svg?style=flat" alt="Facebook: @KarimEbrahemAbdelaziz" />
@@ -56,7 +56,7 @@ Zen is simple yet powerfull Networking library for iOS. It leverage the powerful
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Zen into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'Zen', '~> 0.1.6'
+pod 'Zen', '~> 0.1.7'
 ```
 
 ### Carthage
@@ -64,7 +64,7 @@ pod 'Zen', '~> 0.1.6'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Zen into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "KarimEbrahemAbdelaziz/Zen" ~> 0.1.6
+github "KarimEbrahemAbdelaziz/Zen" ~> 0.1.7
 ```
 
 ### SPM
@@ -75,13 +75,13 @@ Once you have your Swift package set up, adding Zen as a dependency is as easy a
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/KarimEbrahemAbdelaziz/Zen.git", .upToNextMajor(from: "0.1.6"))
+    .package(url: "https://github.com/KarimEbrahemAbdelaziz/Zen.git", .upToNextMajor(from: "0.1.7"))
 ]
 ```
 
-## Usage
+# Usage
 
-#### Create your Model (Must Conform to Codable)
+## Create your Model (Must Conform to Codable)
 ```swift
 struct Todo: Codable {
     var userId: Int
@@ -91,7 +91,7 @@ struct Todo: Codable {
 }
 ```
 
-#### Create your API Client 🔥
+## Create your API Client 🔥
 ```swift
 import Zen
 
@@ -101,17 +101,66 @@ class APIClient {
 }
 ```
 
-#### Use it 🤓
+## Use it 🤓
+### Zen GET Request
 ```swift
 try? APIClient.$fetchTodo
+    // Specifiy HTTPMethod for The Request
     .set(method: .get)
+    // Specifiy Custom PATH for The Request
     .set(path: "1")
+    // Build the Request
     .build()
 
 APIClient.fetchTodo { result in
     switch result {
     case .success(let todo):
         print(todo.title)
+    case .failure(let error):
+        print(error)
+    }
+}
+```
+
+### Zen GET Request (Query Parameters)
+```swift
+try? APIClient.$fetchUsers
+    // Specifiy HTTPMethod for The Request
+    .set(method: .get)
+    // Specifiy Query Parameters for The Request
+    .set(parameters: .url([
+        "delay": "3"
+    ]))
+    // Build the Request
+    .build()
+
+APIClient.fetchUsers { result in
+    switch result {
+    case .success(let users):
+        print(users.data.count)
+    case .failure(let error):
+        print(error)
+    }
+}
+```
+
+### Zen POST Request
+```swift
+try? APIClient.$createUser
+    // Specifiy HTTPMethod for The Request
+    .set(method: .post)
+    // Specifiy Body Parameters for The Request
+    .set(parameters: .body([
+        "name": "Karim Ebrahem",
+        "job": "iOS Software Engineer"
+    ]))
+    // Build the Request
+    .build()
+
+APIClient.createUser { result in
+    switch result {
+    case .success(let user):
+        print(user.name)
     case .failure(let error):
         print(error)
     }
